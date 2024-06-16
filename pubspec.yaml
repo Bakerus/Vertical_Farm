@@ -13,6 +13,10 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   syncfusion_flutter_charts: 25.1.35
   flutter_svg: ^2.0.10+1
+  flutter_gemini: ^2.0.3
+  dash_chat_2: ^0.0.20
+  http: ^1.0.0
+  image_picker: ^1.0.7
 
 dev_dependencies: 
   flutter_lints: 4.0.0

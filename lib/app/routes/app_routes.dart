@@ -7,6 +7,7 @@ abstract class Routes {
   static const GRAPHIQUES = _Paths.GRAPHIQUES;
   static const AUTOMATISATION = _Paths.AUTOMATISATION;
   static const CAMERA = _Paths.CAMERA;
+  static const MALADIE = _Paths.MALADIE;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const GRAPHIQUES = '/graphiques';
   static const AUTOMATISATION = '/automatisation';
   static const CAMERA = '/camera';
+  static const MALADIE = '/maladie';
 }

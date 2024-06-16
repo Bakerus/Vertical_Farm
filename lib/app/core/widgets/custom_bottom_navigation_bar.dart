@@ -56,13 +56,21 @@ class CustomBottomNavigationBar extends StatelessWidget {
                       color: controller.selectedIndex.value == 3
                           ? AppColors.yellowSecondary
                           : Colors.white),
+                ),
+                GestureDetector(
+                  onTap: () => controller.onItemTapped(4),
+                  child: FaIcon(FontAwesomeIcons.seedling,
+                      size: 22.0.sp,
+                      color: controller.selectedIndex.value == 4
+                          ? AppColors.yellowSecondary
+                          : Colors.white),
+                  //  SvgPicture.asset('assets/icons/Fat.svg',
+                  //     fit: BoxFit.cover,
+                  //     width: 22.0.sp,
+                  //     color: controller.selectedIndex.value == 4
+                  //         ? AppColors.yellowSecondary
+                  //         : Colors.white),
                 )
-
-                // FaIcon(FontAwesomeIcons.camera,
-                //     size: 18.0.sp,
-                //     color: controller.selectedIndex.value == 3
-                //         ? AppColors.yellowSecondary
-                //         : Colors.white),
               ],
             ),
           ),

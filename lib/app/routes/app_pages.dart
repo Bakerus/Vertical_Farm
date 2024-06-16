@@ -8,6 +8,8 @@ import '../modules/automatisation/bindings/automatisation_binding.dart';
 import '../modules/automatisation/views/automatisation_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/maladie/bindings/maladie_binding.dart';
+import '../modules/maladie/views/maladie_view.dart';
 
 part 'app_routes.dart';
 
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.CAMERA,
       page: () => const CameraView(),
       binding: CameraBinding(),
+    ),
+    GetPage(
+      name: _Paths.MALADIE,
+      page: () => Maladie(),
+      binding: MaladieBinding(),
     ),
   ];
 }

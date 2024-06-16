@@ -8,6 +8,7 @@ import 'package:vertical_farm/app/modules/Camera/views/camera_view.dart';
 import 'package:vertical_farm/app/modules/Graphiques/views/graphiques_view.dart';
 import 'package:vertical_farm/app/modules/automatisation/views/automatisation_view.dart';
 import 'package:vertical_farm/app/modules/home/views/dashboard.dart';
+import 'package:vertical_farm/app/modules/maladie/views/maladie_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -25,6 +26,7 @@ class HomeView extends GetView<HomeController> {
       GraphiquesView(),
       AutomatisationView(),
       CameraView(),
+      Maladie()
   ];
   @override
   Widget build(BuildContext context) {
