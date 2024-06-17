@@ -8,6 +8,7 @@ abstract class Routes {
   static const AUTOMATISATION = _Paths.AUTOMATISATION;
   static const CAMERA = _Paths.CAMERA;
   static const MALADIE = _Paths.MALADIE;
+  static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const AUTOMATISATION = '/automatisation';
   static const CAMERA = '/camera';
   static const MALADIE = '/maladie';
+  static const SPLASH_SCREEN = '/splash-screen';
 }

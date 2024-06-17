@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vertical_farm/app/core/design/colors.dart';
 import 'package:vertical_farm/app/core/utils/extensions.dart';
+import 'package:vertical_farm/app/core/utils/global_controller.dart';
 import 'package:vertical_farm/app/modules/automatisation/controllers/automatisation_controller.dart';
 
 class CustomCardAutomatisation extends StatelessWidget {
@@ -26,6 +28,7 @@ class CustomCardAutomatisation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final automatisationController = Get.put(AutomatisationController());
+    final globalcontroller = Get.put(GlobalAppController());
 
     return Container(
       width: 100.0.wp,
@@ -86,8 +89,14 @@ class CustomCardAutomatisation extends StatelessWidget {
                             children: [
                               Text("Heure",
                                   style: Get.theme.textTheme.bodySmall),
-                              Text(heure,
-                                  style: Get.theme.textTheme.bodyMedium),
+                              InkWell(
+                                  onTap: () {
+                                    globalcontroller.presentTimePicker(context, moduletitle);
+                                  },
+                                  child: Text(
+                                       heure,
+                                        style: Get.theme.textTheme.bodyMedium),
+                                  ),
                             ],
                           )),
                     ],
@@ -103,10 +112,10 @@ class CustomCardAutomatisation extends StatelessWidget {
                               Text(actions,
                                   style: Get.theme.textTheme.bodySmall),
                               SizedBox(
-                                width:28.0.wp,
+                                width: 28.0.wp,
                                 child: ElevatedButton(
                                   onPressed: onPressed,
-                                  child: Text("Allumer",
+                                  child: Text(actions,
                                       style: Get.theme.textTheme.bodyMedium),
                                 ),
                               ),

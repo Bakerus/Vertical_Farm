@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:vertical_farm/app/core/utils/extensions.dart';
+import 'package:vertical_farm/app/core/utils/global_controller.dart';
 import 'package:vertical_farm/app/core/widgets/custom_card_automatisation.dart';
+import 'package:vertical_farm/app/core/widgets/dialog.dart';
 
 import '../controllers/automatisation_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,6 +14,8 @@ class AutomatisationView extends GetView<AutomatisationController> {
   @override
   Widget build(BuildContext context) {
     final automatisationController = Get.put(AutomatisationController());
+    final globalcontroller = Get.put(GlobalAppController());
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -42,33 +46,93 @@ class AutomatisationView extends GetView<AutomatisationController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CustomCardAutomatisation(
-                        onPressed: () {},
-                        moduletitle: "Ampoule",
-                        type: "ampoule",
-                        heure: "06h30",
-                        actions: "Allumer",
-                        selectedDay:
-                            automatisationController.selectedDayAmpoule,
+                      Obx(
+                        () => CustomCardAutomatisation(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const DialogCustomize(
+                                      title: 'Operation Reaussi',
+                                      describe:
+                                          'Votre configuration a été enregistré avec succées');
+                                });
+                          },
+                          moduletitle: "Ampoule",
+                          type: "ampoule",
+                          heure: (globalcontroller
+                                          .selectedTimeAmpoule.value.hour !=
+                                      globalcontroller
+                                          .selectedTimeAmpoule.value.hour) ||
+                                  (globalcontroller
+                                          .selectedTimeAmpoule.value.minute !=
+                                      globalcontroller
+                                          .selectedTimeAmpoule.value.minute)
+                              ? "00:00"
+                              : "${globalcontroller.selectedTimeAmpoule.value.hour} : ${globalcontroller.selectedTimeAmpoule.value.minute}",
+                          actions: "Allumer",
+                          selectedDay:
+                              automatisationController.selectedDayAmpoule,
+                        ),
                       ),
-                      CustomCardAutomatisation(
-                        onPressed: () {},
-                        moduletitle: "Irrigation",
-                        type: "Irrigation",
-                        heure: "06h30",
-                        actions: "Allumer",
-                        selectedDay:
-                            automatisationController.selectedDayIrrigation,
+                      Obx(
+                        () => CustomCardAutomatisation(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const DialogCustomize(
+                                      title: 'Operation Reaussi',
+                                      describe:
+                                          'Votre configuration a été enregistré avec succées');
+                                });
+                          },
+                          moduletitle: "Irrigation",
+                          type: "Irrigation",
+                          heure: (globalcontroller
+                                          .selectedTimeIrrigation.value.hour !=
+                                      globalcontroller
+                                          .selectedTimeIrrigation.value.hour) ||
+                                  (globalcontroller.selectedTimeIrrigation.value
+                                          .minute !=
+                                      globalcontroller
+                                          .selectedTimeIrrigation.value.minute)
+                              ? "00:00"
+                              : "${globalcontroller.selectedTimeIrrigation.value.hour} : ${globalcontroller.selectedTimeIrrigation.value.minute}",
+                          actions: "Allumer",
+                          selectedDay:
+                              automatisationController.selectedDayIrrigation,
+                        ),
                       ),
-                      CustomCardAutomatisation(
-                        onPressed: () {},
-                        moduletitle: "Vidange",
-                        type: "Vidange",
-                        heure: "06h30",
-                        actions: "Vider",
-                        selectedDay:
-                            automatisationController.selectedDayVindange,
-                      ),
+                      Obx(
+                        () => CustomCardAutomatisation(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const DialogCustomize(
+                                      title: 'Operation Reaussi',
+                                      describe:
+                                          'Votre configuration a été enregistré avec succées');
+                                });
+                          },
+                          moduletitle: "Vidange",
+                          type: "Vidange",
+                          heure: (globalcontroller
+                                          .selectedTimeVidange.value.hour !=
+                                      globalcontroller
+                                          .selectedTimeVidange.value.hour) ||
+                                  (globalcontroller
+                                          .selectedTimeVidange.value.minute !=
+                                      globalcontroller
+                                          .selectedTimeVidange.value.minute)
+                              ? "00:00"
+                              : "${globalcontroller.selectedTimeVidange.value.hour} : ${globalcontroller.selectedTimeVidange.value.minute}",
+                          actions: "Vider",
+                          selectedDay:
+                              automatisationController.selectedDayVindange,
+                        ),
+                      )
                     ],
                   ),
                 ),
