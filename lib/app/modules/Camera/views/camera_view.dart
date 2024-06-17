@@ -96,10 +96,12 @@ class CameraView extends GetView<CameraController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomElevatedButton(
+                            onPressed: () {},
                             width: 12.0.wp,
                             operation: "Mise à jour",
                           ),
                           CustomElevatedButton(
+                            onPressed: () {},
                             width: 12.0.wp,
                             operation: "Photo",
                           ),

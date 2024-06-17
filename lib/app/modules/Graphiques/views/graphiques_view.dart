@@ -33,24 +33,47 @@ class GraphiquesView extends GetView<GraphiquesController> {
                 children: [
                   SizedBox(
                     width: 100.0.wp,
-                    child: SfCartesianChart(
-                      title: ChartTitle(
+                    child: Obx(() {
+                      return SfCartesianChart(
+                        title: ChartTitle(
                           text: "Temperature",
                           alignment: ChartAlignment.near,
                           textStyle: Get.theme.textTheme.bodySmall!.copyWith(
-                              fontSize: 14, fontWeight: FontWeight.w400)),
-                    ),
+                              fontSize: 14, fontWeight: FontWeight.w400),
+                        ),
+                        primaryXAxis: NumericAxis(),
+                        primaryYAxis: NumericAxis(),
+                        series: <LineSeries<double, int>>[
+                          LineSeries<double, int>(
+                            dataSource: controller.temperatureData.toList(),
+                            xValueMapper: (double value, int index) => index,
+                            yValueMapper: (double value, int index) => value,
+                          ),
+                        ],
+                      );
+                    }),
                   ),
-        
-                                  SizedBox(
+                  SizedBox(
                     width: 100.0.wp,
-                    child: SfCartesianChart(
-                      title: ChartTitle(
-                          text: "Humidite",
+                    child: Obx(() {
+                      return SfCartesianChart(
+                        title: ChartTitle(
+                          text: "Humidité",
                           alignment: ChartAlignment.near,
                           textStyle: Get.theme.textTheme.bodySmall!.copyWith(
-                              fontSize: 14, fontWeight: FontWeight.w400)),
-                    ),
+                              fontSize: 14, fontWeight: FontWeight.w400),
+                        ),
+                        primaryXAxis: NumericAxis(),
+                        primaryYAxis: NumericAxis(),
+                        series: <LineSeries<double, int>>[
+                          LineSeries<double, int>(
+                            dataSource: controller.humiditeData.toList(),
+                            xValueMapper: (double value, int index) => index,
+                            yValueMapper: (double value, int index) => value,
+                          ),
+                        ],
+                      );
+                    }),
                   ),
                 ],
               )

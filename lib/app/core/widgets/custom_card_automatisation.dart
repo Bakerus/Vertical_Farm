@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vertical_farm/app/core/design/colors.dart';
 import 'package:vertical_farm/app/core/utils/extensions.dart';
@@ -9,9 +10,18 @@ class CustomCardAutomatisation extends StatelessWidget {
   final String type;
   final String heure;
   final String actions;
+  final bool state;
+  final void Function()? onPressed;
   final selectedDay;
   const CustomCardAutomatisation(
-      {super.key, this.moduletitle = "", required this.selectedDay, required this.type, this.heure = "", this.actions = ""});
+      {super.key,
+      this.moduletitle = "",
+      required this.selectedDay,
+      required this.type,
+      this.heure = "",
+      this.actions = "",
+      this.state = false,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +70,8 @@ class CustomCardAutomatisation extends StatelessWidget {
                             return DropdownMenuItem<String>(
                                 value: value, child: Text(value));
                           }).toList(),
-                          onChanged: (value) =>
-                              automatisationController.setSelectedDay(value!, type),
+                          onChanged: (value) => automatisationController
+                              .setSelectedDay(value!, type),
                         ),
                       )
                     ],
@@ -86,14 +96,20 @@ class CustomCardAutomatisation extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                          width: 74.0.wp,
+                          width: 80.0.wp,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(actions,
                                   style: Get.theme.textTheme.bodySmall),
-                              Text("Alluumer",
-                                  style: Get.theme.textTheme.bodyMedium),
+                              SizedBox(
+                                width:28.0.wp,
+                                child: ElevatedButton(
+                                  onPressed: onPressed,
+                                  child: Text("Allumer",
+                                      style: Get.theme.textTheme.bodyMedium),
+                                ),
+                              ),
                             ],
                           )),
                     ],

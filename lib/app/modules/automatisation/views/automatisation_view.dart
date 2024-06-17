@@ -43,6 +43,7 @@ class AutomatisationView extends GetView<AutomatisationController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomCardAutomatisation(
+                        onPressed: () {},
                         moduletitle: "Ampoule",
                         type: "ampoule",
                         heure: "06h30",
@@ -51,6 +52,7 @@ class AutomatisationView extends GetView<AutomatisationController> {
                             automatisationController.selectedDayAmpoule,
                       ),
                       CustomCardAutomatisation(
+                        onPressed: () {},
                         moduletitle: "Irrigation",
                         type: "Irrigation",
                         heure: "06h30",
@@ -59,6 +61,7 @@ class AutomatisationView extends GetView<AutomatisationController> {
                             automatisationController.selectedDayIrrigation,
                       ),
                       CustomCardAutomatisation(
+                        onPressed: () {},
                         moduletitle: "Vidange",
                         type: "Vidange",
                         heure: "06h30",
