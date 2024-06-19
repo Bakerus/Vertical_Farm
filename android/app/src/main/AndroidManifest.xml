@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
-        android:label="vertical_farm"
+        android:usesCleartextTraffic="true"
+        android:label="Vertical Farm"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

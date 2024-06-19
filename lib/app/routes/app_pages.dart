@@ -38,7 +38,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.CAMERA,
-      page: () => const CameraView(),
+      page: () =>  CameraView(),
       binding: CameraBinding(),
     ),
     GetPage(

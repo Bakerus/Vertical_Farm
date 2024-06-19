@@ -45,16 +45,16 @@ class HomeController extends GetxController {
 
   void startUpdatingValues() {
     final random = Random();
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      temperature.value = (20 + random.nextDouble() * 10)
+    _timer = Timer.periodic(Duration(seconds: 4), (timer) {
+      temperature.value = (23 + random.nextDouble() * 6)
+          .toPrecision(1); // Between 20.0 and 25.0
+      humidite.value = (23 + random.nextDouble() * 6)
           .toPrecision(1); // Between 20.0 and 30.0
-      humidite.value = (20 + random.nextDouble() * 10)
-          .toPrecision(1); // Between 20.0 and 30.0
-      conductivite.value = (100 + random.nextDouble() * 20)
+      conductivite.value = (105 + random.nextDouble() * 10)
           .toPrecision(1); // Between 100.0 and 120.0
       ph.value =
-          (6 + random.nextDouble() * 2).toPrecision(1); // Between 6.0 and 8.0
-      luminosite.value = (30 + random.nextDouble() * 20)
+          (6.5 + random.nextDouble() * 1).toPrecision(1); // Between 6.0 and 7.0
+      luminosite.value = (30 + random.nextDouble() * 10)
           .toPrecision(1); // Between 30.0 and 50.0
 
       graphiquesController.updateTemperature(temperature.value);
